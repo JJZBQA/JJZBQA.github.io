@@ -1,65 +1,67 @@
-// 固件数据 - 实际使用时可以从JSON文件或API加载
-const firmwareData = [
-    {
-        id: 1,
-        name: "TP-Link路由器固件 v3.2.1",
-        description: "适用于TL-WR841N系列路由器的最新固件版本，修复了安全漏洞并提升了性能。",
-        version: "3.2.1",
-        category: "router",
-        size: "8.5 MB",
-        releaseDate: "2024-02-15",
-        downloadUrl: "firmware/router/tl-wr841n_v3.2.1.bin",
-        directLink: "https://github.com/yourusername/yourrepo/releases/download/v3.2.1/tl-wr841n_v3.2.1.bin",
-        icon: "📶"
-    },
-    {
-        id: 2,
-        name: "智能插座固件 v1.5.0",
-        description: "支持WiFi连接的智能插座最新固件，增加了定时功能和能耗统计。",
-        version: "1.5.0",
-        category: "iot",
-        size: "2.1 MB",
-        releaseDate: "2024-02-10",
-        downloadUrl: "firmware/iot/smart-plug_v1.5.0.bin",
-        directLink: "https://github.com/yourusername/yourrepo/releases/download/v1.5.0/smart-plug_v1.5.0.bin",
-        icon: "🔌"
-    },
-    {
-        id: 3,
-        name: "安防摄像头固件 v2.8.3",
-        description: "高清网络摄像头固件，优化了夜视效果和移动侦测算法。",
-        version: "2.8.3",
-        category: "camera",
-        size: "15.2 MB",
-        releaseDate: "2024-02-05",
-        downloadUrl: "firmware/camera/security-camera_v2.8.3.bin",
-        directLink: "https://github.com/yourusername/yourrepo/releases/download/v2.8.3/security-camera_v2.8.3.bin",
-        icon: "📷"
-    },
-    {
-        id: 4,
-        name: "Arduino开发板固件 v1.0.2",
-        description: "适用于Arduino Uno的自定义固件，包含了常用的传感器驱动程序。",
-        version: "1.0.2",
-        category: "other",
-        size: "1.8 MB",
-        releaseDate: "2024-01-28",
-        downloadUrl: "firmware/other/arduino-uno_v1.0.2.hex",
-        directLink: "https://github.com/yourusername/yourrepo/releases/download/v1.0.2/arduino-uno_v1.0.2.hex",
-        icon: "💻"
+// 全局变量存储固件数据
+let firmwareData = [];
+
+// 从JSON文件加载固件数据
+async function loadFirmwareData() {
+    try {
+        const response = await fetch('/firmware/firmware.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        firmwareData = data.firmware;
+        return data;
+    } catch (error) {
+        console.error('加载固件数据失败:', error);
+        // 如果无法加载JSON，使用默认数据
+        return getDefaultFirmwareData();
     }
-];
+}
+
+// 默认固件数据（备用方案）
+function getDefaultFirmwareData() {
+    return {
+        firmware: [
+            {
+                id: 1,
+                name: "TP-Link路由器固件 v3.2.1",
+                description: "适用于TL-WR841N系列路由器的最新固件版本，修复了安全漏洞并提升了性能。",
+                version: "3.2.1",
+                category: "router",
+                size: "8.5 MB",
+                release_date: "2024-02-15",
+                download_url: "firmware/router/tl-wr841n_v3.2.1.bin",
+                direct_link: "https://github.com/JJZBQA/JJZBQA.github.io/releases/download/v3.2.1/tl-wr841n_v3.2.1.bin",
+                icon: "📶"
+            }
+        ],
+        categories: [
+            { id: "router", name: "路由器" },
+            { id: "iot", name: "IoT设备" },
+            { id: "camera", name: "摄像头" },
+            { id: "other", name: "其他设备" }
+        ]
+    };
+}
 
 // DOM加载完成后初始化
-document.addEventListener('DOMContentLoaded', function() {
-    initializeFirmwarePage();
+document.addEventListener('DOMContentLoaded', async function() {
+    // 加载固件数据
+    const data = await loadFirmwareData();
+    
+    // 初始化页面
+    initializeFirmwarePage(data);
     setupEventListeners();
-});
-
-function initializeFirmwarePage() {
+    
+    // 显示固件数据
     displayFirmware(firmwareData);
     setupSearchFunctionality();
     setupCategoryFilter();
+});
+
+function initializeFirmwarePage(data) {
+    // 可以在这里处理额外的初始化逻辑
+    console.log('固件数据加载完成:', data);
 }
 
 function setupEventListeners() {
@@ -114,18 +116,19 @@ function displayFirmware(firmwares) {
     grid.innerHTML = firmwares.map(firmware => `
         <div class="firmware-card" data-category="${firmware.category}">
             <div class="firmware-icon">${firmware.icon}</div>
-            <h3>${firmware.name}</h3>
+            <h3>${firmware.name} v${firmware.version}</h3>
             <p class="firmware-info">${firmware.description}</p>
             <div class="firmware-meta">
+                <span>型号: ${firmware.model}</span>
                 <span>版本: ${firmware.version}</span>
                 <span>大小: ${firmware.size}</span>
-                <span>发布: ${formatDate(firmware.releaseDate)}</span>
+                <span>发布: ${formatDate(firmware.release_date)}</span>
             </div>
-            <a href="${firmware.downloadUrl}" class="download-btn" download>
+            <a href="${firmware.download_url}" class="download-btn" download>
                 📥 本地下载
             </a>
-            <a href="${firmware.directLink}" class="download-btn direct" target="_blank">
-                🔗 直接链接下载
+            <a href="${firmware.direct_link}" class="download-btn direct" target="_blank">
+                🔗 直面链接下载
             </a>
         </div>
     `).join('');

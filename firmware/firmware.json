@@ -1,0 +1,125 @@
+{
+  "firmware": [
+    {
+      "id": 1,
+      "name": "TP-Link路由器固件",
+      "model": "TL-WR841N",
+      "version": "3.2.1",
+      "category": "router",
+      "size": "8.5 MB",
+      "release_date": "2024-02-15",
+      "description": "适用于TL-WR841N系列路由器的最新固件版本，修复了安全漏洞并提升了性能。",
+      "changelog": [
+        "修复了WPS安全漏洞",
+        "优化了WiFi信号稳定性",
+        "提升了QoS性能",
+        "改善了用户界面响应速度"
+      ],
+      "download_url": "/firmware/router/tl-wr841n_v3.2.1.bin",
+      "direct_link": "https://github.com/JJZBQA/JJZBQA.github.io/releases/download/v3.2.1/tl-wr841n_v3.2.1.bin",
+      "checksum": {
+        "md5": "a1b2c3d4e5f67890123456789abcdef0",
+        "sha256": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+      },
+      "compatible_models": ["TL-WR841N v8", "TL-WR841N v9", "TL-WR841N v10"],
+      "icon": "📶"
+    },
+    {
+      "id": 2,
+      "name": "智能插座固件",
+      "model": "Smart Plug Pro",
+      "version": "1.5.0",
+      "category": "iot",
+      "size": "2.1 MB",
+      "release_date": "2024-02-10",
+      "description": "支持WiFi连接的智能插座最新固件，增加了定时功能和能耗统计。",
+      "changelog": [
+        "新增定时开关功能",
+        "添加能耗实时监控",
+        "优化WiFi连接稳定性",
+        "增加OTA升级支持"
+      ],
+      "download_url": "/firmware/iot/smart-plug_v1.5.0.bin",
+      "direct_link": "https://github.com/JJZBQA/JJZBQA.github.io/releases/download/v1.5.0/smart-plug_v1.5.0.bin",
+      "checksum": {
+        "md5": "b2c3d4e5f67890123456789abcdef0a1",
+        "sha256": "234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1"
+      },
+      "compatible_models": ["Smart Plug Pro", "Smart Plug Lite"],
+      "icon": "🔌"
+    },
+    {
+      "id": 3,
+      "name": "安防摄像头固件",
+      "model": "Security Camera HD",
+      "version": "2.8.3",
+      "category": "camera",
+      "size": "15.2 MB",
+      "release_date": "2024-02-05",
+      "description": "高清网络摄像头固件，优化了夜视效果和移动侦测算法。",
+      "changelog": [
+        "大幅提升夜视清晰度",
+        "优化移动侦测算法",
+        "增加双向语音功能",
+        "改善视频流稳定性"
+      ],
+      "download_url": "/firmware/camera/security-camera_v2.8.3.bin",
+      "direct_link": "https://github.com/JJZBQA/JJZBQA.github.io/releases/download/v2.8.3/security-camera_v2.8.3.bin",
+      "checksum": {
+        "md5": "c3d4e5f67890123456789abcdef0a1b2",
+        "sha256": "34567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef12"
+      },
+      "compatible_models": ["Security Camera HD", "Security Camera Pro"],
+      "icon": "📷"
+    },
+    {
+      "id": 4,
+      "name": "Arduino开发板固件",
+      "model": "Arduino Uno Custom",
+      "version": "1.0.2",
+      "category": "other",
+      "size": "1.8 MB",
+      "release_date": "2024-01-28",
+      "description": "适用于Arduino Uno的自定义固件，包含了常用的传感器驱动程序。",
+      "changelog": [
+        "集成DHT22温湿度传感器驱动",
+        "添加HC-SR04超声波传感器支持",
+        "优化内存管理",
+        "增加串口调试功能"
+      ],
+      "download_url": "/firmware/other/arduino-uno_v1.0.2.hex",
+      "direct_link": "https://github.com/JJZBQA/JJZBQA.github.io/releases/download/v1.0.2/arduino-uno_v1.0.2.hex",
+      "checksum": {
+        "md5": "d4e5f67890123456789abcdef0a1b2c3",
+        "sha256": "4567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef123"
+      },
+      "compatible_models": ["Arduino Uno R3", "Arduino Uno Mini"],
+      "icon": "💻"
+    }
+  ],
+  "categories": [
+    {
+      "id": "router",
+      "name": "路由器",
+      "description": "各种品牌路由器固件"
+    },
+    {
+      "id": "iot",
+      "name": "IoT设备",
+      "description": "物联网智能设备固件"
+    },
+    {
+      "id": "camera",
+      "name": "摄像头",
+      "description": "网络摄像头和监控设备固件"
+    },
+    {
+      "id": "other",
+      "name": "其他设备",
+      "description": "开发板和其他嵌入式设备固件"
+    }
+  ],
+  "last_updated": "2024-02-26T11:30:00Z",
+  "total_count": 4,
+  "api_version": "1.0"
+}
