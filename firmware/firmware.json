@@ -2,6 +2,30 @@
   "firmware": [
     {
       "id": 1,
+      "name": "摄像头固件",
+      "model": "BM2",
+      "version": "V1.2",
+      "category": "camera",
+      "size": "4.3 MB",
+      "release_date": "2024-02-26",
+      "description": "BM2系列摄像头最新固件版本，优化了图像质量和连接稳定性。",
+      "changelog": [
+        "提升夜间拍摄清晰度",
+        "优化WiFi连接稳定性",
+        "改善运动检测算法",
+        "修复已知bug"
+      ],
+      "download_url": "/firmware/camera/BM2_V1_2.bin",
+      "direct_link": "https://github.com/JJZBQA/JJZBQA.github.io/releases/download/v1.2/BM2_V1_2.bin",
+      "checksum": {
+        "md5": "待计算",
+        "sha256": "待计算"
+      },
+      "compatible_models": ["BM2 V1.0", "BM2 V1.1", "BM2 V1.2"],
+      "icon": "📷"
+    },
+    {
+      "id": 2,
       "name": "TP-Link路由器固件",
       "model": "TL-WR841N",
       "version": "3.2.1",
@@ -119,7 +143,7 @@
       "description": "开发板和其他嵌入式设备固件"
     }
   ],
-  "last_updated": "2024-02-26T11:30:00Z",
-  "total_count": 4,
+  "last_updated": "2024-02-26T11:45:00Z",
+  "total_count": 5,
   "api_version": "1.0"
 }
