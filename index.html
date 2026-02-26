@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的网站</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>我的网站</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#about">关于</a></li>
+                    <li><a href="#services">服务</a></li>
+                    <li><a href="#contact">联系</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>欢迎来到我的网站</h1>
+                <p>这是一个现代化的响应式网站模板</p>
+                <button class="cta-button">了解更多</button>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>关于我们</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>我们致力于提供优质的网站开发服务，帮助客户实现数字化转型。</p>
+                        <p>拥有丰富的行业经验和技术实力，为各类企业提供专业的解决方案。</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="images/placeholder.jpg" alt="关于我们" onerror="this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2>我们的服务</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>网站设计</h3>
+                        <p>现代化的UI/UX设计，提升用户体验</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>前端开发</h3>
+                        <p>响应式网页开发，适配各种设备</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>后端开发</h3>
+                        <p>稳定可靠的服务器端应用程序开发</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>联系我们</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="您的姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="您的邮箱" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="您的消息" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">发送消息</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 我的网站. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

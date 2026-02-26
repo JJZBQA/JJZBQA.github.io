@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>固件下载中心 - 我的网站</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .firmware-section {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+        
+        .firmware-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .firmware-header h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .firmware-header p {
+            color: #666;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .firmware-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .firmware-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .firmware-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .firmware-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+        
+        .firmware-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .firmware-info {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .firmware-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .download-btn:hover {
+            background: #2980b9;
+            color: white;
+        }
+        
+        .download-btn.direct {
+            background: #27ae60;
+            margin-top: 10px;
+        }
+        
+        .download-btn.direct:hover {
+            background: #219653;
+        }
+        
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        
+        .category-filter {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .category-btn {
+            background: #eee;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .category-btn.active {
+            background: #3498db;
+            color: white;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 50px;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .firmware-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .firmware-meta {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1><a href="../index.html" style="text-decoration: none; color: inherit;">我的网站</a></h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#home">首页</a></li>
+                    <li><a href="../index.html#about">关于</a></li>
+                    <li><a href="../index.html#services">服务</a></li>
+                    <li><a href="firmware.html" class="active">固件下载</a></li>
+                    <li><a href="../index.html#contact">联系</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="firmware-section">
+            <div class="container">
+                <div class="firmware-header">
+                    <h1>🔧 固件下载中心</h1>
+                    <p>在这里您可以找到最新的固件版本，支持直接下载和链接分享</p>
+                </div>
+                
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="搜索固件名称或描述...">
+                </div>
+                
+                <div class="category-filter">
+                    <button class="category-btn active" data-category="all">全部</button>
+                    <button class="category-btn" data-category="router">路由器</button>
+                    <button class="category-btn" data-category="iot">IoT设备</button>
+                    <button class="category-btn" data-category="camera">摄像头</button>
+                    <button class="category-btn" data-category="other">其他设备</button>
+                </div>
+                
+                <div class="firmware-grid" id="firmwareGrid">
+                    <!-- 固件卡片将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 我的网站. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script src="../js/firmware.js"></script>
+</body>
+</html>
