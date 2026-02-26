@@ -2,27 +2,48 @@
   "firmware": [
     {
       "id": 1,
-      "name": "摄像头固件",
-      "model": "BM2",
-      "version": "V1.2",
-      "category": "camera",
-      "size": "4.3 MB",
+      "name": "摄像头固件套装",
+      "model": "February 2024 Update",
+      "version": "v2024.02",
+      "category": "bundle",
+      "size": "28.1 MB",
       "release_date": "2024-02-26",
-      "description": "BM2系列摄像头最新固件版本，优化了图像质量和连接稳定性。",
+      "description": "2024年2月固件更新包，包含所有设备的最新版本。",
       "changelog": [
-        "提升夜间拍摄清晰度",
-        "优化WiFi连接稳定性",
-        "改善运动检测算法",
-        "修复已知bug"
+        "摄像头：优化夜视效果和连接稳定性",
+        "路由器：修复安全漏洞，改善WiFi性能", 
+        "IoT设备：新增定时功能，优化能耗统计"
       ],
-      "download_url": "/firmware/camera/BM2_V1_2.bin",
-      "direct_link": "https://github.com/JJZBQA/JJZBQA.github.io/releases/download/BM2-V1.2/BM2_V1_2.bin",
+      "download_url": "#",
+      "direct_link": "https://github.com/JJZBQA/JJZBQA.github.io/releases/download/v2024.02/",
       "checksum": {
-        "md5": "待计算",
-        "sha256": "待计算"
+        "md5": "",
+        "sha256": ""
       },
-      "compatible_models": ["BM2 V1.0", "BM2 V1.1", "BM2 V1.2"],
-      "icon": "📷"
+      "compatible_models": ["所有2024年2月支持的设备"],
+      "icon": "📦",
+      "files": [
+        {
+          "name": "camera_BM2_V1_2.bin",
+          "description": "BM2摄像头固件",
+          "size": "4.3 MB"
+        },
+        {
+          "name": "router_TL-WR841N_v3.2.1.bin", 
+          "description": "TL-WR841N路由器固件",
+          "size": "8.5 MB"
+        },
+        {
+          "name": "iot_SmartPlug_v1.5.0.bin",
+          "description": "智能插座固件",
+          "size": "2.1 MB"
+        },
+        {
+          "name": "other_Arduino_Uno_v1.0.2.hex",
+          "description": "Arduino Uno开发板固件",
+          "size": "1.8 MB"
+        }
+      ]
     },
     {
       "id": 2,
