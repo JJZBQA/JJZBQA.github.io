@@ -1,0 +1,31 @@
+{
+  "name": "WiFi Flash Tool",
+  "manifest_version": "1.0",
+
+  "tool_firmware": {
+    "version": "1.2.0",
+    "url": "https://server/fw/tool.bin",
+    "size": 524288,
+    "md5": "xxxxxxxx",
+    "release_time": 1719900000,
+    "force_update": false
+  },
+
+  "mcu_firmware": {
+    "name": "STM32 App",
+    "version": "3.4.1",
+    "url": "https://server/fw/mcu.bin",
+    "size": 131072,
+    "md5": "xxxxxxxx",
+
+    "image_url": "https://server/img/mcu.png",
+
+    "download_count": 1024,
+    "upload_time": 1719900000,
+
+    "chip": "STM32F103",
+    "flash_address": "0x08000000"
+  },
+
+  "info": "WiFi烧录器OTA服务"
+}
