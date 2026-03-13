@@ -1,23 +1,15 @@
 {
-  "name": "WiFi Flash Tool",
-  "manifest_version": "1.0",
-  "info": "WiFi烧录器OTA服务",
+  "release_time": 1773386045,
   "tool_firmware": {
-    "version": "1.0.0",
+    "version": "RDPRO_FS7_S013(next_human_level).bin",
     "url": "https://jjzbqa.github.io/flash/flash01/tool_firmware/RDPRO_FS7_S013(next_human_level).bin",
-    "size": 2931744,
-    "md5": "fef44850350713b1a5c2c6ae540893a6",
-    "release_time": 1773055102,
-    "force_update": false
+    "md5": "fef44850350713b1a5c2c6ae540893a6"
   },
   "mcu_firmware": {
-    "version": "1.0.0",
+    "version": "RDPRO_FS7_Z005(black).bin",
     "url": "https://jjzbqa.github.io/flash/flash01/mcu_firmware/RDPRO_FS7_Z005(black).bin",
-    "size": 4666008,
     "md5": "031207a872f4d041e10962c893fedb94",
-    "release_time": 1773055102,
-    "name": "RDPRO_FS7_Z005(black)",
-    "upload_time": 1773055102,
-    "download_count": 60
+    "size": 4666008,
+    "download_count": 70
   }
 }

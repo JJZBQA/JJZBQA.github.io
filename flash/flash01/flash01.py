@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 import os
-import sys
 import json
 import hashlib
 import time
 import argparse
-from datetime import datetime
 
 BASE_URL = "https://jjzbqa.github.io/flash/flash01/"
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -34,22 +32,7 @@ def get_file_size(filepath):
 
 def extract_version(filename):
     """从文件名提取版本号"""
-    name_without_ext = os.path.splitext(filename)[0]
-    parts = name_without_ext.split('_')
-    for part in parts:
-        if part[0].isdigit() or part.startswith('v'):
-            version = part.lstrip('v')
-            if '.' in version:
-                return version
-    return "1.0.0"
-
-
-def extract_name(filename, firmware_type):
-    """从文件名提取固件名称"""
-    name_without_ext = os.path.splitext(filename)[0]
-    if firmware_type == "mcu_firmware":
-        return name_without_ext
-    return "Tool Firmware"
+    return filename
 
 
 def find_firmware_file(directory):
@@ -83,7 +66,7 @@ def save_json(data):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 
-def process_firmware(firmware_type):
+def process_firmware(firmware_type, download_count):
     """处理指定类型的固件"""
     directory = FIRMWARE_DIRS[firmware_type]
     filename = find_firmware_file(directory)
@@ -95,25 +78,19 @@ def process_firmware(firmware_type):
     filepath = os.path.join(directory, filename)
     print(f"[+] 找到固件: {filename}")
     
-    size = get_file_size(filepath)
     md5 = calculate_md5(filepath)
     version = extract_version(filename)
     url = generate_url(firmware_type, filename)
-    release_time = int(time.time())
     
     firmware_info = {
         "version": version,
         "url": url,
-        "size": size,
-        "md5": md5,
-        "release_time": release_time
+        "md5": md5
     }
     
     if firmware_type == "mcu_firmware":
-        firmware_info["name"] = extract_name(filename, firmware_type)
-        firmware_info["upload_time"] = release_time
-    else:
-        firmware_info["force_update"] = False
+        firmware_info["size"] = get_file_size(filepath)
+        firmware_info["download_count"] = download_count
     
     return firmware_info
 
@@ -141,10 +118,13 @@ def main():
     print("[*] 扫描固件目录...")
     print()
     
-    tool_info = process_firmware("tool_firmware")
-    mcu_info = process_firmware("mcu_firmware")
+    tool_info = process_firmware("tool_firmware", download_count)
+    mcu_info = process_firmware("mcu_firmware", download_count)
     
     print()
+    
+    release_time = int(time.time())
+    config["release_time"] = release_time
     
     if tool_info:
         config["tool_firmware"] = tool_info
@@ -154,7 +134,6 @@ def main():
     
     if mcu_info:
         config["mcu_firmware"] = mcu_info
-        mcu_info["download_count"] = download_count
         print(f"[+] mcu_firmware 已更新")
     else:
         config.pop("mcu_firmware", None)
@@ -169,12 +148,10 @@ def main():
         print(f"tool_firmware:")
         print(f"  version: {tool_info['version']}")
         print(f"  url: {tool_info['url']}")
-        print(f"  size: {tool_info['size']} bytes")
         print(f"  md5: {tool_info['md5']}")
     
     if mcu_info:
         print(f"mcu_firmware:")
-        print(f"  name: {mcu_info['name']}")
         print(f"  version: {mcu_info['version']}")
         print(f"  url: {mcu_info['url']}")
         print(f"  size: {mcu_info['size']} bytes")
