@@ -1,9 +1,9 @@
 {
-  "release_time": 1773656625,
+  "release_time": 1773662664,
   "tool_firmware": {
     "version": "flash_downloader.bin",
     "url": "https://jjzbqa.github.io/flash/flash01/tool_firmware/flash_downloader.bin",
-    "md5": "a9b83e78bb2a8a94c1586c2f0701ec44"
+    "md5": "f3d405e71277d153bddc73bf3bd0c993"
   },
   "mcu_firmware": {
     "version": "RDPRO_FS7_Z005(black).bin",
