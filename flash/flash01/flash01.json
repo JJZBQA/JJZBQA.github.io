@@ -1,9 +1,9 @@
 {
-  "release_time": 1773386045,
+  "release_time": 1773656625,
   "tool_firmware": {
-    "version": "RDPRO_FS7_S013(next_human_level).bin",
-    "url": "https://jjzbqa.github.io/flash/flash01/tool_firmware/RDPRO_FS7_S013(next_human_level).bin",
-    "md5": "fef44850350713b1a5c2c6ae540893a6"
+    "version": "flash_downloader.bin",
+    "url": "https://jjzbqa.github.io/flash/flash01/tool_firmware/flash_downloader.bin",
+    "md5": "a9b83e78bb2a8a94c1586c2f0701ec44"
   },
   "mcu_firmware": {
     "version": "RDPRO_FS7_Z005(black).bin",
